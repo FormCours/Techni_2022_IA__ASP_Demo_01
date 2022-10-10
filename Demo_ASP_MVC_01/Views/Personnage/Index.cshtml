@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Personnage>
+
+@{
+    string email = ViewBag.Email + " / " + ViewData["Email"];
+    double nb1 = 21;
+    double nb2 = 2;
+
+    string date = DateTime.Now.ToLongDateString();
+    string heure = DateTime.Now.ToShortTimeString();
+}
+
+<h2>Mise à jours le @date à @heure</h2>
+<p>Adresse de contact : @email</p>
+<p>Resultat opération : @nb1 x @nb2 = @(nb1 * nb2)</p>
+
+
+<!-- Commentaire en HTML -->
+@* Commentaire en C# *@
+
+<h1>Liste des personnages :</h1>
+<ul>
+    @foreach(Personnage perso in @Model) {
+        <li>@perso.Prenom @perso.Nom.ToUpper()</li>
+    }
+</ul>
